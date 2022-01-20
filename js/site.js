@@ -27,7 +27,7 @@ function displayLink(movieObj) {
 
 	li.classList.add("list-group-item");
 	li.setAttribute("data-id", nextLinkId);
-	li.innerHTML = liVAlue;
+	li.innerHTML = liValue;
 
 	// add the li element to the page
 	ol.appendChild(li);
