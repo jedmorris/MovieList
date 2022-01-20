@@ -66,7 +66,7 @@ function displayLink(movieObj) {
 
 	let delButton = `<button onclick="delLink(this)" class="btn btn-danger" type="button">Delete</button>`
 
-	let liValue = `<span>${movieObj["name"]}</span>---<span><a href="${movieObj["url"]}" target="_blank">${movieObj["url"]}${delButton}</span>`
+	let liValue = `<span>${movieObj["name"]}</span>---<span><a href="${movieObj["url"]}" target="_blank">${movieObj["url"]}</a></span> ${delButton}`
 
 	li.classList.add("list-group-item");
 	li.setAttribute("data-id", movieObj["id"]);
@@ -83,5 +83,15 @@ function delLink(button) {
 
 
 	let li = button.parentElement;
+	let linkId = li.getAttribute("data-id");
 	li.remove();
+
+	// remove an item from the movieLink array
+	// Step 1- find the index of the item in the array
+	movieIndex = movieLinks.findIndex(obj => obj.id == linkId);
+	movieLinks.splice(movieIndex, 1);
+
+	// Step 2- reset local storage with updated obj
+	localStorage.setItem("movieLinks", JSON.stringify(movieLinks));
+
 }
