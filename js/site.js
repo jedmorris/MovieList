@@ -34,7 +34,7 @@ function addLink() {
 		// Step 2- find the max value in the array
 		let maxId = Math.max.apply(null, ids);
 
-		let linkId = maxId + 1;
+		linkId = maxId + 1;
 
 	}
 
@@ -77,6 +77,10 @@ function displayLink(movieObj) {
 }
 
 function delLink(button) {
+
+	let movieLinks = JSON.parse(localStorage.getItem("movieLinks")) || [];
+
+
 
 	let li = button.parentElement;
 	li.remove();
