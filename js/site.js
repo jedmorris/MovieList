@@ -5,7 +5,7 @@ function getLinks() {
 
 	// loop through movieLinks JSON array and add them to movieObj 
 	for (let i = 0; i < movieLinks.length; i++) {
-	
+
 		let movieObj = movieLinks[i];
 
 		displayLink(movieObj);
@@ -23,10 +23,28 @@ function addLink() {
 	let movieName = document.getElementById("movieName").value;
 	let movieUrl = document.getElementById("movieUrl").value;
 
+	let linkId = 1;
+	if (movieLinks.length > 0) {
+
+		// Step 1- use map to grab array of ids
+		let ids = movieLinks.map(function (obj) {
+			return obj.id
+		})
+
+		// Step 2- find the max value in the array
+		let maxId = Math.max.apply(null, ids);
+
+		let linkId = maxId + 1;
+
+	}
+
+	// generate the next id for the link
+	// create obj to store links
 	let movieObj = {};
 
 	movieObj["name"] = movieName;
 	movieObj["url"] = movieUrl;
+	movieObj["id"] = linkId;
 
 	// add the link to local storage
 	movieLinks.push(movieObj);
@@ -51,14 +69,14 @@ function displayLink(movieObj) {
 	let liValue = `<span>${movieObj["name"]}</span>---<span><a href="${movieObj["url"]}" target="_blank">${movieObj["url"]}${delButton}</span>`
 
 	li.classList.add("list-group-item");
-	li.setAttribute("data-id", nextLinkId);
+	li.setAttribute("data-id", movieObj["id"]);
 	li.innerHTML = liValue;
 
 	// add the li element to the page
 	ol.appendChild(li);
 }
 
-function delLink(button){
+function delLink(button) {
 
 	let li = button.parentElement;
 	li.remove();
