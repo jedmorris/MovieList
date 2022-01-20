@@ -23,7 +23,7 @@ function displayLink(movieObj) {
 	// find any existing links
 	let nextLinkId = ol.getElementsByTagName("li", ).length + 1;
 
-	let liValue = `<span>${movieObj["name"]}</span>---<span><a href="${movieObj["url"]}">${movieObj["url"]}</span>`
+	let liValue = `<span>${movieObj["name"]}</span>---<span><a href="${movieObj["url"]}" target="_blank">${movieObj["url"]}</span>`
 
 	li.classList.add("list-group-item");
 	li.setAttribute("data-id", nextLinkId);
