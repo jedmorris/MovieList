@@ -25,10 +25,10 @@ function displayLink(movieObj) {
 
 	let liValue = `<span>${movieObj["name"]}</span>---<span><a href="${movieObj["url"]}">${movieObj["url"]}</span>`
 
-	li.className.add("list-group-item");
+	li.classList.add("list-group-item");
 	li.setAttribute("data-id", nextLinkId);
 	li.innerHTML = liVAlue;
-	
+
 	// add the li element to the page
 	ol.appendChild(li);
 }
