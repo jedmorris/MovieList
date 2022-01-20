@@ -46,7 +46,9 @@ function displayLink(movieObj) {
 	// find any existing links
 	let nextLinkId = ol.getElementsByTagName("li", ).length + 1;
 
-	let liValue = `<span>${movieObj["name"]}</span>---<span><a href="${movieObj["url"]}" target="_blank">${movieObj["url"]}</span>`
+	let delButton = `<button onclick="delLink(this)" class="btn btn-danger" type="button">Delete</button>`
+
+	let liValue = `<span>${movieObj["name"]}</span>---<span><a href="${movieObj["url"]}" target="_blank">${movieObj["url"]}${delButton}</span>`
 
 	li.classList.add("list-group-item");
 	li.setAttribute("data-id", nextLinkId);
