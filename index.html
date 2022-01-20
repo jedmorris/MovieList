@@ -11,6 +11,13 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
 		crossorigin="anonymous">
+	<!-- Sortable JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"
+		integrity="sha512-zYXldzJsDrNKV+odAwFYiDXV2Cy37cwizT+NkuiPGsa9X1dOz04eHvUWVuxaJ299GvcJT31ug2zO4itXBjFx4w=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+	<!-- CSS stylesheet -->
+	<link rel="stylesheet" href="/css/site.css">
 </head>
 
 <body>
@@ -44,6 +51,11 @@
 	<script>
 		window.addEventListener("load", getLinks);
 		document.getElementById("btnSubmit").addEventListener("click", addLink);
+
+		new Sortable(movieList, {
+			animation: 150,
+			ghostClass: 'blue-background-class'
+		});
 	</script>
 </body>
 
