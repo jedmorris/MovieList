@@ -1,5 +1,24 @@
+// get links from local storage
+function getLinks() {
+
+	let movieLinks = JSON.parse(localStorage.getItem("movieLinks")) || [];
+
+	// loop through movieLinks JSON array and add them to movieObj 
+	for (let i = 0; i < movieLinks.length; i++) {
+	
+		let movieObj = movieLinks[i];
+
+		displayLink(movieObj);
+	}
+
+	// write links to the page
+}
+
 // add a link
 function addLink() {
+
+	// grab movieObjs in local storage
+	let movieLinks = JSON.parse(localStorage.getItem("movieLinks")) || [];
 
 	let movieName = document.getElementById("movieName").value;
 	let movieUrl = document.getElementById("movieUrl").value;
@@ -8,6 +27,10 @@ function addLink() {
 
 	movieObj["name"] = movieName;
 	movieObj["url"] = movieUrl;
+
+	// add the link to local storage
+	movieLinks.push(movieObj);
+	localStorage.setItem("movieLinks", JSON.stringify(movieLinks));
 
 	displayLink(movieObj);
 
