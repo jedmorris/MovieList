@@ -57,3 +57,9 @@ function displayLink(movieObj) {
 	// add the li element to the page
 	ol.appendChild(li);
 }
+
+function delLink(button){
+
+	let li = button.parentElement;
+	li.remove();
+}
